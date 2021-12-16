@@ -14,6 +14,8 @@ _netid_to_name = {
     100: "xdai",
     42161: "arbitrum",
     421611: "arbitrum_testnet",
+    250: "fantom",
+    288: "boba"
 }
 
 _factory_contract_addresses_v1 = {
