@@ -15,7 +15,9 @@ _netid_to_name = {
     42161: "arbitrum",
     421611: "arbitrum_testnet",
     250: "fantom",
-    288: "boba"
+    288: "boba",
+    1088: "metis",
+    1313161554: "aurora"
 }
 
 _factory_contract_addresses_v1 = {
