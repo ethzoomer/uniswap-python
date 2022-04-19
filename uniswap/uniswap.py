@@ -358,7 +358,7 @@ class Uniswap:
                 elif is_same_address(token1, self.get_weth_address()):
                     return int(self._get_token_eth_output_price(token0, Wei(qty), fee))
 
-                route = [token0, self.get_weth_address(), token1]
+                route = [token0, self.get_midpoint_address(), token1]
                 logger.warning(f"No route specified, assuming route: {route}")
 
         if self.version == 2:
