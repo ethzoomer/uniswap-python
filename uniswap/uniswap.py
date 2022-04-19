@@ -75,6 +75,8 @@ class Uniswap:
             or "0x0000000000000000000000000000000000000000000000000000000000000000"
         )
 
+        self.router_add = router_contract_addr
+
         self.version = version
 
         # TODO: Write tests for slippage
@@ -246,7 +248,8 @@ class Uniswap:
         return price
 
     def get_midpoint_address(self):
-        if self.network == "aurora":
+        logger.warning(f"Network: {self.network}")
+        if self.network == "aurora" or self.router_add.lower() == "0xa3a1eF5Ae6561572023363862e238aFA84C72ef5".lower() or self.router_add.lower() == "0x2CB45Edb4517d5947aFdE3BEAbF95A582506858B".lower():
             return '0xc42c30ac6cc15fac9bd938618bcaa1a1fae8501d'
         else:
             return self.get_weth_address()
