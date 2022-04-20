@@ -247,12 +247,6 @@ class Uniswap:
             )
         return price
 
-    def get_midpoint_address(self):
-        if self.network == "aurora":
-            return '0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d'
-        else:
-            return self.get_weth_address()
-
     def _get_token_token_input_price(
         self,
         token0: AddressLike,  # input token
@@ -275,7 +269,7 @@ class Uniswap:
                 elif is_same_address(token1, self.get_weth_address()):
                     return int(self._get_token_eth_input_price(token0, qty, fee))
 
-                route = [token0, self.get_midpoint_address(), token1]
+                route = [token0, self.get_weth_address(), token1]
                 logger.warning(f"No route specified, assuming route: {route}")
 
         if self.version == 2:
@@ -360,7 +354,7 @@ class Uniswap:
                 elif is_same_address(token1, self.get_weth_address()):
                     return int(self._get_token_eth_output_price(token0, Wei(qty), fee))
 
-                route = [token0, self.get_midpoint_address(), token1]
+                route = [token0, self.get_weth_address(), token1]
                 logger.warning(f"No route specified, assuming route: {route}")
 
         if self.version == 2:
