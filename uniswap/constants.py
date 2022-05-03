@@ -17,7 +17,9 @@ _netid_to_name = {
     250: "fantom",
     288: "boba",
     1088: "metis",
-    1313161554: "aurora"
+    1313161554: "aurora",
+    9001: "evmos",
+    280: "zksync"
 }
 
 _factory_contract_addresses_v1 = {
