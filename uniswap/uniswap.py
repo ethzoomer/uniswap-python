@@ -1211,6 +1211,8 @@ class Uniswap:
     @supports([2, 3])
     def get_weth_address(self) -> ChecksumAddress:
         """Retrieves the WETH address from the contracts (which may vary between chains)."""
+        if int(self.w3.net.version) == 2000:
+            return "0xB7ddC6414bf4F5515b52D8BdD69973Ae205ff101"
         if self.version == 2:
             # Contract calls should always return checksummed addresses
             address: ChecksumAddress = self.router.functions.WETH().call()
