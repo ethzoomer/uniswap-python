@@ -19,7 +19,8 @@ _netid_to_name = {
     1088: "metis",
     1313161554: "aurora",
     9001: "evmos",
-    280: "zksync"
+    280: "zksync",
+    2000: "dogechain"
 }
 
 _factory_contract_addresses_v1 = {
