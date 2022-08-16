@@ -96,7 +96,7 @@ class Uniswap:
             self.network = _netid_to_name[netid]
         else:
             raise Exception(f"Unknown netid: {netid}")
-        logger.info(f"Using {self.w3} ('{self.network}')")
+        #logger.info(f"Using {self.w3} ('{self.network}')")
 
         self.last_nonce: Nonce = self.w3.eth.get_transaction_count(self.address)
 
@@ -161,7 +161,7 @@ class Uniswap:
             )
 
         if hasattr(self, "factory_contract"):
-            logger.info(f"Using factory contract: {self.factory_contract}")
+            #logger.info(f"Using factory contract: {self.factory_contract}")
 
     # ------ Market --------------------------------------------------------------------
 
@@ -270,7 +270,7 @@ class Uniswap:
                     return int(self._get_token_eth_input_price(token0, qty, fee))
 
                 route = [token0, self.get_weth_address(), token1]
-                logger.warning(f"No route specified, assuming route: {route}")
+                #logger.warning(f"No route specified, assuming route: {route}")
 
         if int(self.w3.net.version) == 2000:
             route = [token0, token1]
@@ -358,7 +358,7 @@ class Uniswap:
                     return int(self._get_token_eth_output_price(token0, Wei(qty), fee))
 
                 route = [token0, self.get_weth_address(), token1]
-                logger.warning(f"No route specified, assuming route: {route}")
+                #logger.warning(f"No route specified, assuming route: {route}")
 
         if self.version == 2:
             price: int = self.router.functions.getAmountsIn(qty, route).call()[0]
