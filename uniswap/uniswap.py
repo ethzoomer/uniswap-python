@@ -272,6 +272,9 @@ class Uniswap:
                 route = [token0, self.get_weth_address(), token1]
                 logger.warning(f"No route specified, assuming route: {route}")
 
+        if int(self.w3.net.version) == 2000:
+            route = [token0, token1]
+
         if self.version == 2:
             price: int = self.router.functions.getAmountsOut(qty, route).call()[-1]
         elif self.version == 3:
